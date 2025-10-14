@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Buss Bites Mochi Handmade Filipino-inspired mochi in Yema, Coffee, and Presto flavors. Sweet moments, one bite at a time!" />
+  <meta name="keywords" content="Buss Bites Mochi, Filipino mochi, Yema mochi, Coffee mochi, Presto mochi, handmade desserts, Batangas mochi" />
+  <meta name="author" content="Buss Bites Team" />
+
+  <meta property="og:title" content="Buss Bites Mochi 🍡" />
+  <meta property="og:description" content="Sweet moments, one bite at a time. Try our Yema, Coffee, and Presto mochi today!" />
+  <meta property="og:image" content="Bites.jpg.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/bussbitesmochi/" />
+
+  <title>Buss Bites Mochi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="Bites.jpg.jpg">
+
+  <style>
+    :root {
+      --main-bg: #174a5a;
+      --accent-orange: #e45b29;
+      --accent-yellow: #ffb347;
+      --light-cream: #fff8e7; /* updated smoother cream */
+      --text-dark: #3a3a3a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--main-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent-yellow);
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    nav img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 200px;
+        background: var(--main-bg);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        transition: 0.4s;
+      }
+
+      nav ul.active { right: 0; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* HERO */
+    .hero {
+      background-color: var(--main-bg);
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 20px;
+    }
+
+    .hero img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--accent-yellow);
+      text-shadow: 2px 2px 0 var(--accent-orange);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--light-cream);
+      margin-top: 10px;
+      max-width: 600px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      min-height: 100vh;
+      background-color: var(--light-cream);
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2.5rem;
+      color: var(--main-bg);
+      margin-bottom: 40px;
+    }
+
+    .product-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 179, 71, 0.4);
+    }
+
+    /* ✅ Responsive Product Images */
+    .product img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product img:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 1024px) {
+      .product img { height: 220px; }
+    }
+
+    @media (max-width: 768px) {
+      .product img { height: 180px; }
+    }
+
+    @media (max-width: 480px) {
+      .product img { height: 160px; }
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background-color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2.3rem;
+      color: var(--main-bg);
+      margin-bottom: 50px;
+    }
+
+    .testimonial {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .testimonial.active {
+      display: flex;
+    }
+
+    .testimonial img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid var(--accent-orange);
+      object-fit: cover;
+    }
+
+    .testimonial p {
+      font-size: 1.1rem;
+      max-width: 500px;
+      color: #444;
+      font-style: italic;
+    }
+
+    .testimonial h4 {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FLOATING ORDER BUTTON */
+    .fixed-order {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-orange);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+
+    .fixed-order:hover {
+      transform: scale(1.1);
+      background: var(--accent-yellow);
+      color: var(--main-bg);
+    }
+
+    footer {
+      text-align: center;
+      background: var(--main-bg);
+      color: var(--light-cream);
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: var(--accent-yellow);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .product { width: 90%; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="logo"><img src="Bites.jpg.jpg" alt="Logo"> Buss Bites</a>
+    <div class="menu-toggle" id="menu-toggle"><div></div><div></div><div></div></div>
+    <ul id="menu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Flavors</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <img src="Bites.jpg.jpg" alt="Buss Bites Mochi Logo">
+    <h1>Buss Bites Mochi</h1>
+    <p>Sweet moments, one bite at a time. Handmade mochi in your favorite Filipino inspired flavors!</p>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <h2>Our Flavors</h2>
+    <div class="product-container">
+      <div class="product"><img src="yema.jpg" alt="Yema"><h3>Yema</h3><p>Soft and chewy with a creamy caramel like Yema filling a classic Pinoy sweetness.</p></div>
+      <div class="product"><img src="coffee.jpg" alt="Coffee"><h3>Coffee</h3><p>Wake up your senses with our smooth, aromatic coffee mochi. Perfect for caffeine lovers.</p></div>
+      <div class="product"><img src="presto.jpg" alt="Presto"><h3>Presto</h3><p>Crunchy peanut butter goodness meets soft mochi inspired by the nostalgic Filipino biscuit.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS --> 
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial active"><img src="Male.jpg" alt="Customer 1"><p>“The Yema mochi tastes like heaven! Sweet, soft, and melts perfectly in your mouth.”</p><h4>- Prince A.</h4></div>
+    <div class="testimonial"><img src="Male.jpg" alt="Customer 2"><p>“The Coffee flavor is my go-to! It’s like having dessert and coffee in one bite.”</p><h4>- Joshua B.</h4></div>
+    <div class="testimonial"><img src="female.jpg" alt="Customer 3"><p>“Buss Bites Mochi never misses soft, flavorful, and always freshly made!”</p><h4>- Eu P.</h4></div>
+    <div class="testimonial"><img src="female3.jpg" alt="Customer 4"><p>“I tried the Presto flavor it’s addicting! Sweet, nutty, and super soft.”</p><h4>- Cassandra A.</h4></div>
+    <div class="testimonial"><img src="Male.jpg" alt="Customer 5"><p>“Every flavor tastes fresh and unique. Definitely my new favorite dessert!”</p><h4>- Sean M.</h4></div>
+    <div class="testimonial"><img src="female3.jpg" alt="Customer 6"><p>“Tried it once and I’m hooked! Perfect for pasalubong or merienda.”</p><h4>- Juday A..</h4></div>
+    <div class="testimonial"><img src="male.jpg" alt="Customer 7"><p>“The mochi texture is perfect soft outside, rich filling inside. Buss Bites nailed it.”</p><h4>- Alvin S.</h4></div>
+    <div class="testimonial"><img src="female2.jpg" alt="Customer 8"><p>“Beautiful packaging and amazing taste. You can feel the love in every bite!”</p><h4>- Angel A.</h4></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding:80px 20px; text-align:center;">
+    <h2 style="color:var(--main-bg); font-size:2.2rem;">Contact Us</h2>
+    <p>We’d love to hear from you! Message us for orders, events, or collabs.</p>
+    <p>📩 bussbitesmochi@gmail.com</p>
+    <p>📍 Based in Faith Colleges, Tanauan City, Batangas, Philippines</p>
+  </section>
+
+  <!-- FLOATING BUTTON -->
+  <a href="https://www.instagram.com/bussbitesmochi_?igsh=cnFhdjlrb3B4aGR2" class="fixed-order" target="_blank">Order Now</a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Follow us:
+      <a href="https://www.instagram.com/bussbitesmochi_?igsh=cnFhdjlrb3B4aGR2" target="_blank">Instagram</a> | 
+      <a href="https://www.facebook.com/share/1EE52ve8no/" target="_blank">Facebook</a>
+    </p>
+    <p>© 2025 Buss Bites Mochi All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('active'));
+
+    const testimonials = document.querySelectorAll('.testimonial');
+    let index = 0;
+    setInterval(() => {
+      testimonials[index].classList.remove('active');
+      index = (index + 1) % testimonials.length;
+      testimonials[index].classList.add('active');
+    }, 5000);
+  </script>
+</body>
+</html>
